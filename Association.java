@@ -1,15 +1,19 @@
 // A class for structuring associations that may be compared.
 // (c) 1998, 2001 duane a. bailey
-import java.util.Map;
+
 /**
  * </pre>  
  * @version $Id: ComparableAssociation.java 34 2007-08-09 14:43:44Z bailey $
  * @author, 2001 duane a. bailey
  */
-public class ComparableAssociation<K extends Comparable<K>,V> extends Association<K,V>
-    implements Comparable<ComparableAssociation<K,V>>
-    
+public class Association<K extends Comparable<K>,V> implements Comparable<Association<K,V>> 
 {
+    /**
+     * Key and value
+     */
+    K key;
+    V value;
+
     /**
      * Construct an association that can be ordered, from only a key.
      * The value is set to null.
@@ -19,9 +23,10 @@ public class ComparableAssociation<K extends Comparable<K>,V> extends Associatio
      * 
      * @param key The (comparable) key.
      */
-    public ComparableAssociation(K key)
+    public Association(K key)
     {
-        this(key,null);
+        this.key = key;
+        this.value = null;
     }
 
     /**
@@ -33,9 +38,10 @@ public class ComparableAssociation<K extends Comparable<K>,V> extends Associatio
      * @param key The (comparable) key.
      * @param value The (possibly comparable) associated value.
      */
-    public ComparableAssociation(K key, V value)
+    public Association(K key, V value)
     {
-        super(key,value);
+        this.key = key;
+        this.value = value;
     }
 
     /**
@@ -47,7 +53,7 @@ public class ComparableAssociation<K extends Comparable<K>,V> extends Associatio
      * @param other The other comparable association.
      * @return Value less-than equal to or greater than zero based on comparison
      */
-    public int compareTo(ComparableAssociation<K,V> that)
+    public int compareTo(Association<K,V> that)
     {
         return this.getKey().compareTo(that.getKey());
     }
@@ -65,4 +71,22 @@ public class ComparableAssociation<K extends Comparable<K>,V> extends Associatio
         s.append("<ComparableAssociation: "+getKey()+"="+getValue()+">");
         return s.toString();
     }
+
+    /**
+     * Returns the key
+     * @return key
+     */
+    public K getKey(){
+        return key;
+    }
+
+    /**
+     * Returns the value
+     * @return value
+     */
+    public V getValue(){
+        return value;
+    }
+
+    
 }
