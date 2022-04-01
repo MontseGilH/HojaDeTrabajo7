@@ -65,27 +65,16 @@ public class BinarySearchTree<E extends Comparable<E>>
      * @post returned: 1 - existing tree node with the desired value, or
      *                 2 - the node to which value should be added
      */
-    protected BinaryTree<E> locate(BinaryTree<E> root, E value)
+    protected BinaryTree<E> locate(BinaryTree<E> roo, E value)
     {
-        E rootValue = root.value();
-        BinaryTree<E> child;
-
-        // found at root: done
-        if (rootValue.equals(value)) return root;
-        // look left if less-than, right if greater-than
-        if (ordering.compare(rootValue,value) < 0)
+        if (roo==null||roo.value().compareTo(value)==0)
         {
-            child = root.right();
-        } else {
-            child = root.left();
+            return roo;
         }
-        // no child there: not in tree, return this node,
-        // else keep searching
-        if (child.isEmpty()) {
-            return root;
-        } else {
-            return locate(child, value);
+        if (value.compareTo(roo.value())<0) {
+        	return locate(roo.left,value);
         }
+        return locate(roo.right,value);
     }
 
     protected BinaryTree<E> predecessor(BinaryTree<E> root)
@@ -170,10 +159,10 @@ public class BinarySearchTree<E extends Comparable<E>>
     public E get(E value)
     {
         BinaryTree<E> possibleLocation = locate(root,value);
-        if (value.equals(possibleLocation.value()))
-          return possibleLocation.value();
-        else
+        if (possibleLocation==null)
           return null;
+        else
+          return possibleLocation.value();
     }
 
 
@@ -198,7 +187,7 @@ public class BinarySearchTree<E extends Comparable<E>>
         StringBuffer s = new StringBuffer();
         s.append("<BinarySearchTree:");
         if (!root.isEmpty()) {
-            //FALTA
+            s.append(inOrder(root,""));
         }
         s.append(">");
         return s.toString();
