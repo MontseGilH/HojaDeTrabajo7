@@ -185,13 +185,13 @@ public class BinarySearchTree<E extends Comparable<E>>
     public String toStringOrder()
     {
         StringBuffer s = new StringBuffer();
-        s.append("<");
+        s.append("");
         if (!root.isEmpty()) {
             String h = inOrder(root,"");
-            h = h.substring(0,h.length()-2);
+            h = h.substring(0,h.length()-1);
             s.append(h);
         }
-        s.append(">");
+        s.append("");
         return s.toString();
     }
 
@@ -202,7 +202,7 @@ public class BinarySearchTree<E extends Comparable<E>>
     {
         if (tree != null){
             s = inOrder(tree.left(),s);
-            s+= tree.value().toString()+", ";
+            s+= tree.value().toString()+"\n";
             s = inOrder(tree.right,s);
         }
         return s;

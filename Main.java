@@ -1,6 +1,14 @@
 import java.util.Scanner;
 import java.io.File;
 
+/**
+ * Ultima modificacion: 31/03/2022
+ * 
+ * Clase main que interactua con el usuario
+ * @file Main.java
+ * @author Montserrat Gil
+ * @author Gabriela Archila
+ */
 public class Main {
     public static void main(String[] args){
         Diccionarios dics = new Diccionarios();

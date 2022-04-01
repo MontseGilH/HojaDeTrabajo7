@@ -1,3 +1,12 @@
+/**
+ * Ultima modificacion: 31/03/2022
+ * 
+ * Clase de los binaryTree
+ * @file BinaryTree.java
+ * @author Montserrat Gil
+ * @author Gabriela Archila
+ */
+
 public class BinaryTree<E extends Comparable<E>>
 {
 

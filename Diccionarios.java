@@ -1,8 +1,23 @@
 import java.util.ArrayList;
 import java.io.File;
 import java.util.Scanner;
-
+/**
+ * Ultima modificacion: 31/03/2022
+ * 
+ * Clase que controla los diccionarios
+ * @file Diccionarios.java
+ * @author Montserrat Gil
+ * @author Gabriela Archila
+ */
 public class Diccionarios {
+
+    /**
+     * Obtiene el diccionario de una lengua especifica
+     * @param archivo
+     * @param lengua
+     * @return diccionario
+     * @throws Exception
+     */
     public BinarySearchTree<Association<String,String []>> diccionario(String archivo, String lengua) throws Exception{
         BinarySearchTree<Association<String,String []>> dic = new BinarySearchTree<Association<String,String []>>();
         ArrayList<String> lineas = new ArrayList<>();
@@ -39,6 +54,15 @@ public class Diccionarios {
         return dic;
     }
 
+    /**
+     * Obtiene el diccionario de una lengua especifica
+     * @param archivo
+     * @param lenguaI lengua de origen
+     * @param lenguaF lengua final
+     * @param texto texto a traducir
+     * @return texto traducido
+     * @throws Exception
+     */
     public String translate(String lenguaI, String lenguaF,String text, String archivo)throws Exception{
         String [] items = text.toLowerCase().split(" ");
         String oracion = "";
@@ -125,6 +149,14 @@ public class Diccionarios {
         return oracion;
     }
 
+
+    /**
+     * Imprime diccionario in order
+     * @param archivo
+     * @param lengua
+     * @return Diccionario in order
+     * @throws Exception
+     */
     public String inOrderDic(String lengua, String archivo)throws Exception{
         return diccionario(archivo,lengua).toStringOrder();
     }

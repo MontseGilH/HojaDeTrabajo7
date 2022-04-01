@@ -39,7 +39,11 @@ public class ClaseTest {
 		arbol.add("hello");
 		arbol.add("mira");
 		arbol.add("casa");
-		assertEquals("<adios, casa, hello, hola, mira>",arbol.toStringOrder());
+		assertEquals("adios\n"
+				+ "casa\n"
+				+ "hello\n"
+				+ "hola\n"
+				+ "mira",arbol.toStringOrder());
 	}
 	
 	/**
@@ -52,7 +56,10 @@ public class ClaseTest {
 		arbol.add(new Association<String, String>("bye","adios"));
 		arbol.add(new Association<String, String>("home","casa"));
 		arbol.add(new Association<String, String>("apple","manzana"));
-		assertEquals("<apple, bye, hello, home>",arbol.toStringOrder());
+		assertEquals("key: apple - value: manzana\n"
+				+ "key: bye - value: adios\n"
+				+ "key: hello - value: hola\n"
+				+ "key: home - value: casa",arbol.toStringOrder());
 		assertEquals("hello",arbol.get(new Association<String, String>("hello",null)).key);
 		assertEquals("hola",arbol.get(new Association<String, String>("hello","")).value);
 		assertEquals(null,arbol.get(new Association<String, String>("happy","")));

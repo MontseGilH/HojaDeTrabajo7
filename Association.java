@@ -67,8 +67,18 @@ public class Association<K extends Comparable<K>,V> implements Comparable<Associ
      */
     public String toString()
     {
-        
-        return key.toString();
+        String r = "key: "+key.toString() + " - value: ";
+        String [] list={};
+        if (value.getClass().equals(list.getClass())){
+            String [] pal = (String[]) value;
+            for (String s:pal){
+                r+=s+", ";
+            }
+            r = r.substring(0,r.length()-2);
+        } else {
+        	r+=value.toString();
+        }
+        return r;
     }
 
     /**
