@@ -1,6 +1,7 @@
-house, casa, loger
-dog, perro, chien
-homework,tarea, devoirs
-woman, mujer, femme
-town, pueblo, ville
-yes,si, oui
+house,casa,loger
+dog,perro,chien
+homework,tarea,devoirs
+woman,mujer,femme
+town,pueblo,ville
+yes,si,oui
+hello,hola,bonjour
